@@ -2,7 +2,7 @@ package be.technifutur;
 
 public class Test3 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         CharPrinter printer = new CharPrinter('-', 80, 50);
         CharPrinter printer2 = new CharPrinter('+', 80, 50);
         CharPrinter printer3 = new CharPrinter('*', 100, 50);
@@ -13,6 +13,8 @@ public class Test3 {
         thread1.start();
         thread2.start();
         new Thread(printer3).start();
-        System.out.println("c'est fini");
-    }
+
+        thread1.join();
+            System.out.println("c'est fini");
+     }
 }
